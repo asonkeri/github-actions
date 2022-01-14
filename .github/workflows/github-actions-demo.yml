@@ -17,6 +17,7 @@ jobs:
       - run: npm test
 
   acceptance-test:
+    concurrency: acceptance-test
     runs-on: ubuntu-latest
     container:
       image: marketsquare/robotframework-browser

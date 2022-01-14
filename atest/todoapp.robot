@@ -10,6 +10,9 @@ Should add TODOs
     When "Buy Milk" TODO Is Created
     Then "Buy Milk" TODO Should Be In TODO List
 
+Should Wait A Long Time
+    Sleep    3min
+
 *** Keywords ***
 There Are No TODOs
     New Page   ${SUT URL}
