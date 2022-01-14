@@ -17,6 +17,7 @@ jobs:
       - run: npm test
 
   acceptance-test:
+    needs: build
     concurrency: acceptance-test
     runs-on: ubuntu-latest
     container:
@@ -31,4 +32,12 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: robot-results
-          path: results/log.html
+          path: results
+
+  production:
+    needs: acceptance-test
+    concurrency: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dummy production stage
+        run: sleep 20 && echo "deployed to prod"
