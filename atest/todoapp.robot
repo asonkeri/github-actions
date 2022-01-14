@@ -11,7 +11,7 @@ Should add TODOs
     Then "Buy Milk" TODO Should Be In TODO List
 
 Should Wait A Long Time
-    Sleep    3min
+    Sleep    2min
 
 *** Keywords ***
 There Are No TODOs
