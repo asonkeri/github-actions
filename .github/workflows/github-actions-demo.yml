@@ -7,13 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Cache .npm
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       - name: Use Node.js 12.x
         uses: actions/setup-node@v2
         with:
@@ -38,4 +31,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: robot-results
-          path: results
+          path: results/log.html
