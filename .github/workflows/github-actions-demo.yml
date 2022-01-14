@@ -28,3 +28,7 @@ jobs:
       - run: chown -R pwuser .
       - name: Run Robot tests
         run: su pwuser -c "python3 -m robot -d results atest"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: robot-results
+          path: results
