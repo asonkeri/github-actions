@@ -1,8 +1,10 @@
 *** Settings ***
-Library    Browser
+Library           Browser
 
 *** Variables ***
-${SUT URL}    https://todomvc.com/examples/vanillajs/
+${SUT URL}        https://todomvc.com/examples/vanillajs/
+${Todo Input}     .new-todo
+${Todo List}      .todo-list
 
 *** Test Cases ***
 Should add TODOs
@@ -12,12 +14,11 @@ Should add TODOs
 
 *** Keywords ***
 There Are No TODOs
-    New Page   ${SUT URL}
+    New Page    ${SUT URL}
 
 "${todo}" TODO Is Created
-    Type Text    .new-todo    ${todo}
+    Type Text    ${Todo Input}    ${todo}    clear=True
     Keyboard Key    press    Enter
 
 "${todo}" TODO Should Be In TODO List
-    Wait For Elements State    css=.todo-list >> text="Buy Milk"    visible
-
+    Wait For Elements State    ${Todo List} >> "Buy Milk"    visible
