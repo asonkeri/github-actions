@@ -15,3 +15,15 @@ jobs:
         run: npm ci
       - run: npm run build --if-present
       - run: npm test
+
+  acceptance-test:
+    runs-on: ubuntu-latest
+    container:
+      image: marketsquare/robotframework-browser
+      options: --user root
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - run: chown -R pwuser .
+      - name: Run Robot tests
+        run: su pwuser -c "python3 -m robot -d results atest"
