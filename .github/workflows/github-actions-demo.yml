@@ -1,6 +1,6 @@
 name: React App CI
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
